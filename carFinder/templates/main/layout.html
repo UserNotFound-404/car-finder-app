@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+	<title></title>
+</head>
+<body>
+	{% include "main/header.html" %}
+	{% include "main/not_authorized.html" %}
+	{% block content %}
+	{% endblock %}
+	{% include "main/footer.html" %}
+</body>
+</html>
