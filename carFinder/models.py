@@ -1,13 +1,19 @@
 from django.db import models
 
 class Brand(models.Model):
-	name = models.CharField(max_length = 50)
+	name = models.CharField(max_length = 50, unique = True)
 	country = models.CharField(max_length = 80)
 
+	def __str__(self):
+		return self.name
+
 class Model(models.Model):
-	name = models.CharField(max_length = 80)
+	name = models.CharField(max_length = 80, unique = True)
 	year = models.IntegerField()
 	body_style = models.CharField(max_length = 80)
+
+	def __str__(self):
+		return f"{self.name}, type: {self.body_style}"
 
 class Car(models.Model):
 	brand = models.ForeignKey(Brand, on_delete = models.CASCADE)
@@ -21,3 +27,5 @@ class Car(models.Model):
 	engine = models.CharField(max_length = 50)
 	on_sale = models.BooleanField()
 	
+	def __str__(self):
+		return f"{self.brand.name} {self.model.name}"
