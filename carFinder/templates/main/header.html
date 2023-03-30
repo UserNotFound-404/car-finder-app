@@ -3,7 +3,7 @@
     <ul class="nav nav-pills">
       <li class="nav-item"><a href="{% url 'home' %}" class="nav-link active" aria-current="page">Home</a></li>
       {% if user.is_authenticated %}
-      	<p style="color:white"> 
+      	<p style="color:white">
           Welcome {{ user.get_username }} <br>
           <a href="{% url 'logout' %}">Logout</a>
         </p>

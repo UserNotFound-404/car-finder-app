@@ -1,0 +1,36 @@
+{% extends "main/layout.html" %}
+{% block content %}
+
+<main>
+<div class="py-5 container">
+	<div class="container">
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+			{% for car in cars %}
+			<div class="col">
+				<div class="card border-3 border-dark" style="width: 18rem;">
+				  <div class="card-body">
+				  	<div class="text-center">
+					    <h5 class="card-title">{{ car.brand }} {{ car.model.name }}</h5>
+					    <h6 class="card-subtitle mb-2">{{ car.price }} $</h6>
+					  </div>
+				    <p>Mileage: {{ car.mileage }} miles</p>
+				    <p>Fuel type: {{ car.fuel_type }} </p>
+				    <p>Transmission: {{ car.transmission }} </p>
+				    <p>Exterier color <span style="color:{{ car.extr_color }}; font-size:20px"> &#9632; </span></p>
+				    <p>Interier color <span style="color:{{ car.intr_color }}; font-size:20px"> &#9632; </span></p>
+				    <p>Engine: {{ car.engine }} </p>
+				    {% if car.on_sale %}
+				    <p> On sale now <span style="color:green">&#10004;</span></p>
+				    {% else %}
+				    <p> Unavailable to buy <span style="color:red">&#10060;</span></p>
+				    {% endif %}
+				  </div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+</main>
+
+{% endblock %}
