@@ -1,6 +1,7 @@
 {% extends 'main/layout.html' %}
 
 {% block content %}
+{% if user.is_authenticated %}
 <main>
 <div class="py-5 container">
 	<div class="container">
@@ -32,4 +33,7 @@
 	</div>
 </div>
 </main>
+{% else %}
+{% include "main/not_authorized.html" %}
+{% endif %}
 {% endblock %}
