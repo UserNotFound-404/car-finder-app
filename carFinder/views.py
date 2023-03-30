@@ -8,8 +8,23 @@ from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 
 def index(request):
+	return render(request, "main/index.html")
+
+def all_cars(request):
 	cars = Car.objects.all()
-	return render(request, "main/index.html", {'cars': cars})
+	return render(request, "main/car_list.html", {'cars': cars})
+
+def car_list(request):
+	cars = Car.objects.filter(on_sale = True)
+	return render(request, "main/car_list.html", {'cars': cars})
+
+def brand_list(request):
+	brands = Brand.objects.all()
+	return render(request, "main/brand_list.html", {'brands': brands})
+
+def model_list(request):
+	models = Model.objects.all()
+	return render(request, "main/model_list", {'models': models})
 
 def register_request(request):
 	if request.method == "POST":
