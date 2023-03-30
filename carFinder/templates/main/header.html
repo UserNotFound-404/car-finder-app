@@ -2,17 +2,20 @@
   <div class="container">
     <ul class="nav nav-pills">
       <li class="nav-item"><a href="{% url 'home' %}" class="nav-link active" aria-current="page">Home</a></li>
-      {% if user.is_authenticated %}
-      	<p style="color:white">
-          Welcome {{ user.get_username }} <br>
-          <a href="{% url 'logout' %}">Logout</a>
-        </p>
-      {% else %}
-      <p style="color:white">
-      	<a href="{% url 'register' %}">Sign up</a>
-      	<a href="{% url 'login' %}">Sign in</a>
-      </p>
-      {% endif %}
+      <li class="nav-item"><a href="{% url 'car_list' %}" class="nav-link" aria-current="page">Cars on sale</a></li>
+      <li class="nav-item"><a href="{% url 'brand_list' %}" class="nav-link" aria-current="page">Brands</a></li>
+      <li class="nav-item"><a href="{% url 'model_list' %}" class="nav-link" aria-current="page">Models</a></li>
+      <li class="nav-item"><a href="{% url 'all_cars' %}" class="nav-link" aria-current="page">All cars</a></li>
     </ul>
+    {% if user.is_authenticated %}
+      <div class="align-items-end">
+        <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+      </div>
+    {% else %}
+    <div class="align-items-end pe-5">
+      <a href="{% url 'register' %}">Sign up</a>
+      <a href="{% url 'login' %}">Sign in</a>
+    </div>
+    {% endif %}    
   </div>
 </header>
