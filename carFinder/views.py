@@ -24,7 +24,7 @@ def brand_list(request):
 
 def model_list(request):
 	models = Model.objects.all()
-	return render(request, "main/model_list", {'models': models})
+	return render(request, "main/model_list.html", {'models': models})
 
 def register_request(request):
 	if request.method == "POST":
