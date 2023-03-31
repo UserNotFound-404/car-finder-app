@@ -2,9 +2,11 @@
 <html>
 <head>
 	{% load bootstrap5 %}
+	{% load static %}
   {% bootstrap_css %}
   {% bootstrap_javascript %}
-	<title></title>
+  <title></title>
+  <script type="text/javascript" src="{% static 'main/js/current_url.js' %}"></script>
 </head>
 <body>
 	{% include "main/header.html" %}
