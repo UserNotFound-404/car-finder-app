@@ -1,17 +1,11 @@
 {% extends "main/layout.html" %}
 {% block content %}
-<form method="GET" class="text-center row row-cols-1 g-3 row-cols-md-3">
-	{% for field in filter_form %}
-	<div class="col">
-	{{ field.label_tag }}
-	{{ field }}
-	</div>
-	{% endfor %}
-	<button type="submit">OK</button>
-</form>
 <main>
 <div class="py-5 container">
-	<div class="container">
+	<div class="container">	
+		{% if filter_form %}
+			{% include "main/filter.html" %}
+		{% endif %}
 		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 			{% for car in cars %}
 			<div class="col">
