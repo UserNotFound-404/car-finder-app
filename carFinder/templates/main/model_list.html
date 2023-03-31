@@ -1,5 +1,9 @@
 {% extends "main/layout.html" %}
 {% block content %}
+<form method="GET">
+	{{ filter_form }}
+	<button type="submit"> Filter </button>
+</form>
 <main>
 <div class="py-5 container">
 	<div class="container text-center card-group">
