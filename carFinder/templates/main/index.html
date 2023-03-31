@@ -5,10 +5,6 @@
   <div class="col-lg-6 col-md-8 mx-auto">
     <h1 class="fw-light">Welcome, {{ user.get_username }}</h1>
     <p class="lead text-body-secondary">You can<a href="{% url 'car_list' %}">Search for cars</a> to buy. Or see <a href="{% url 'brand_list' %}">all brands</a> and <a href="{% url 'model_list' %}"> models </a> that we have.</p>
-    <p align="center">
-      <a href="user/login/" class="btn btn-primary my-2">Sign in</a>
-      <a href="user/create/" class="btn btn-secondary my-2">Sign up</a>
-    </p>
   </div>
 </div>
 {% endblock %}

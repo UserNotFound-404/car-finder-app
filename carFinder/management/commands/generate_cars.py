@@ -31,7 +31,7 @@ class Command(BaseCommand):
       country = fake.country()
     
       model_name = fake.random_letter() + str(fake.random_int())
-      year = fake.random_int(1996, 2023)
+      year = fake.random_int(1970, 2023)
       body_style = random.choice(body_styles)
 
       transmission = random.choice(transmissions)

@@ -1,12 +1,10 @@
 {% extends "main/layout.html"%}
 {% block content %}
-
-
 <main>
 <div class="py-5 container">
-		{% if filter_form %}
-			{% include "main/filter.html" %}
-		{% endif %}
+	{% if filter_form %}
+		{% include "main/filter.html" %}
+	{% endif %}
 	<div class="container text-center card-group">
 		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
 			{% for brand in brands %}

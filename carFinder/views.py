@@ -66,9 +66,21 @@ def car_list(request):
 	if max_mileage:
 		cars = cars.filter(mileage__lte=max_mileage)
 	if extr_color and selected_extr_color:
-		cars = cars.filter(extr_color=extr_color)
+		temp_car_list = cars
+		extr_color_hsl = Car.get_hsl_color(extr_color)
+		for car in temp_car_list:
+			car_extr_hsl_color = Car.get_hsl_color(car.extr_color)
+			distance = Car.get_color_distance(car_extr_hsl_color, extr_color_hsl)
+			if distance > 0.21 and car in cars:
+				cars = cars.exclude(id=car.id)
 	if intr_color and selected_intr_color:
-		cars = cars.filter(intr_color=intr_color)
+		temp_car_list = cars
+		intr_color_hsl = Car.get_hsl_color(intr_color)
+		for car in temp_car_list:
+			car_intr_hsl_color = Car.get_hsl_color(car.intr_color)
+			distance = Car.get_color_distance(car_intr_hsl_color, intr_color_hsl)
+			if distance > 0.21 and car in cars:
+				cars = cars.exclude(id=car.id)
 	if fuel_type:
 		cars = cars.filter(fuel_type=fuel_type)
 	return render(request, 'main/car_list.html', {'cars': cars, 'filter_form': filter_form})

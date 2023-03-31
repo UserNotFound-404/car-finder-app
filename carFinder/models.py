@@ -1,4 +1,6 @@
 from django.db import models
+import colorsys
+
 
 class Brand(models.Model):
 	name = models.CharField(max_length = 50, unique = True)
@@ -27,5 +29,12 @@ class Car(models.Model):
 	engine = models.CharField(max_length = 50)
 	on_sale = models.BooleanField()
 	
+	def get_hsl_color(color):
+		temp_rgb = tuple(int(color[i:i+2], 16) for i in (1,3,5))
+		return colorsys.rgb_to_hls(*[c/255.0 for c in temp_rgb])
+
+	def get_color_distance(color1, color2):
+		return float(((color1[0] - color2[0])**2 + (color1[1] - color2[1])**2 + (color1[2] - color2[2])**2) ** 0.5)
+
 	def __str__(self):
 		return f"{self.brand.name} {self.model.name}"
