@@ -8,7 +8,7 @@ class Brand(models.Model):
 		return self.name
 
 class Model(models.Model):
-	name = models.CharField(max_length = 80, unique = True)
+	name = models.CharField(max_length = 80)
 	year = models.IntegerField()
 	body_style = models.CharField(max_length = 80)
 
