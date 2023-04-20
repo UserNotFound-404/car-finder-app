@@ -12,10 +12,12 @@ class CarForm(forms.ModelForm):
 				'intr_color': forms.TextInput(attrs={'type': 'color'}),
 		}
 
+
 class CarAdmin(admin.ModelAdmin):
 	form = CarForm
+
 
 admin.site.register(Brand)
 admin.site.register(Model)
 admin.site.register(Car, CarAdmin)
-
+admin.site.register(Profile)
